@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+{% load staticfiles %}
+		{% load crispy_forms_tags %}
+		<!-- Website CSS style -->
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'css/form.css' %}">
+		<!-- Google Fonts -->
+
+
+		<title>Signup</title>
+	</head>
+	<body style="background-image: url('{% static 'img/cloth.jpg' %}')">
+		<div class="container">
+
+				<div class="main-login main-center">
+
+                    {% if registered %}
+                      <h1>Thank you for registering!</h1>
+                    {% else %}
+				<center><h5>Sign up once and be our member for free.</h5></center>
+
+					<form enctype="multipart/form-data" method="POST">
+                      {% csrf_token %}
+                      {{ user_form| crispy}}
+                      {{ profile_form|crispy }}
+
+
+                            <center><input class="btn btn-light" type="submit" name="submit_reg" value="Register" ></center>
+
+
+					</form>
+                    {% endif %}
+				</div>
+
+
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	</body>
+</html>

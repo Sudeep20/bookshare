@@ -1,0 +1,15 @@
+{% extends 'profiles/home.html' %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Bookshare</h1>
+    {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username }}!</h2>
+    {% else %}
+        <h2>Welcome to Bookshare Nepal share what you have and obtain more from others!</h2>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'profiles/home.html' %}
+
+{% block content %}
+
+
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in documents %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}
+        <img src="{{ obj.document.url }}" alt="{{ obj.document.name }}">
+        </a>
+        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
